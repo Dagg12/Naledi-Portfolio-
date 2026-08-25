@@ -1,0 +1,2338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nails by Naledi | Nail Artist & Nail Art in South Africa</title>
+    <meta name="description" content="Nails by Naledi offers personalised manicures, nail art, pedicures and beautiful custom nail sets. View the gallery, prices and book your appointment." />
+
+    <!-- Google Fonts (Variable) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome 6 (Free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <!-- AOS (Animate on Scroll) Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <style>
+        /* ============================================================
+                   CSS VARIABLES & RESET
+                   ============================================================ */
+        :root {
+            --blush: #f5e6e0;
+            --blush-light: #faf3f0;
+            --ivory: #faf6f0;
+            --nude: #f0e4dc;
+            --gold: #d4a574;
+            --gold-light: #e8d5c0;
+            --rose: #e8d5d0;
+            --espresso: #2c1810;
+            --text-dark: #3d2c25;
+            --text-soft: #6b5a53;
+            --white: #ffffff;
+            --shadow: 0 8px 40px rgba(44, 24, 16, 0.08);
+            --shadow-hover: 0 16px 60px rgba(44, 24, 16, 0.14);
+            --radius: 20px;
+            --radius-sm: 12px;
+            --transition: 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --font-serif: 'Playfair Display', Georgia, serif;
+            --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            --font-script: 'Great Vibes', cursive;
+            --max-width: 1200px;
+            --nav-height: 72px;
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--ivory);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        button {
+            cursor: pointer;
+            font-family: inherit;
+            border: none;
+            background: none;
+        }
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        .section-padding {
+            padding: 80px 0;
+        }
+        .section-padding-sm {
+            padding: 60px 0;
+        }
+
+        /* ============================================================
+                   TYPOGRAPHY
+                   ============================================================ */
+        .serif {
+            font-family: var(--font-serif);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+        .serif-italic {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 400;
+        }
+        .script {
+            font-family: var(--font-script);
+            font-weight: 400;
+            color: var(--gold);
+        }
+        .section-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--text-soft);
+            font-weight: 500;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 2.6rem;
+            font-weight: 700;
+            line-height: 1.15;
+            color: var(--espresso);
+            margin-bottom: 12px;
+        }
+        .section-title .script {
+            font-size: 1.6rem;
+            display: inline-block;
+            margin-left: 4px;
+        }
+        .section-subtitle {
+            font-size: 1.05rem;
+            color: var(--text-soft);
+            max-width: 560px;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+        .section-subtitle.centered {
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .text-gold {
+            color: var(--gold);
+        }
+
+        /* ============================================================
+                   BUTTONS
+                   ============================================================ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 14px 34px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.02em;
+            transition: var(--transition);
+            border: 1.5px solid transparent;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.1);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s ease;
+            z-index: -1;
+        }
+        .btn:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .btn-primary {
+            background: var(--espresso);
+            color: var(--white);
+            border-color: var(--espresso);
+        }
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(44, 24, 16, 0.20);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--espresso);
+            border-color: var(--espresso);
+        }
+        .btn-secondary:hover {
+            background: var(--espresso);
+            color: var(--white);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(44, 24, 16, 0.15);
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--white);
+            border-color: var(--gold);
+        }
+        .btn-gold:hover {
+            background: #c4956a;
+            border-color: #c4956a;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(212, 165, 116, 0.30);
+        }
+
+        .btn-outline-gold {
+            background: transparent;
+            color: var(--gold);
+            border-color: var(--gold);
+        }
+        .btn-outline-gold:hover {
+            background: var(--gold);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .btn-sm {
+            padding: 10px 24px;
+            font-size: 0.8rem;
+        }
+
+        /* ============================================================
+                   NAVIGATION
+                   ============================================================ */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            height: var(--nav-height);
+            display: flex;
+            align-items: center;
+            transition: var(--transition);
+            background: transparent;
+            padding: 0 24px;
+        }
+        .navbar.scrolled {
+            background: rgba(250, 246, 240, 0.92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            box-shadow: 0 1px 30px rgba(44, 24, 16, 0.06);
+        }
+        .navbar .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 0;
+        }
+        .nav-brand {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--espresso);
+            letter-spacing: -0.01em;
+        }
+        .nav-brand .flower {
+            font-size: 0.9rem;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        .nav-links a {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: var(--transition);
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: var(--gold);
+            transition: var(--transition);
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-links a:hover {
+            color: var(--espresso);
+        }
+        .nav-cta {
+            display: none;
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: 4px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .hamburger span {
+            display: block;
+            width: 26px;
+            height: 2px;
+            background: var(--espresso);
+            border-radius: 2px;
+            transition: var(--transition);
+            transform-origin: center;
+        }
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(250, 246, 240, 0.96);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 28px;
+            z-index: 999;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+        }
+        .mobile-nav.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .mobile-nav a {
+            font-family: var(--font-serif);
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--espresso);
+            transition: var(--transition);
+        }
+        .mobile-nav a:hover {
+            color: var(--gold);
+        }
+
+        /* ============================================================
+                   BUTTERFLIES (The "Life" Factor)
+                   ============================================================ */
+        .butterfly-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            overflow: hidden;
+        }
+
+        .butterfly {
+            position: absolute;
+            font-size: 1.6rem;
+            color: var(--gold);
+            opacity: 0.35;
+            animation: floatButterfly linear infinite;
+            will-change: transform;
+            filter: drop-shadow(0 4px 12px rgba(212, 165, 116, 0.15));
+        }
+
+        @keyframes floatButterfly {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            25% {
+                transform: translate(40px, -80px) rotate(5deg) scale(1.1);
+            }
+            50% {
+                transform: translate(-30px, -160px) rotate(-3deg) scale(0.9);
+            }
+            75% {
+                transform: translate(50px, -240px) rotate(4deg) scale(1.05);
+            }
+            100% {
+                transform: translate(-20px, -320px) rotate(-2deg) scale(1);
+            }
+        }
+
+        /* ============================================================
+                   HERO
+                   ============================================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: var(--nav-height) 0 60px;
+            background: var(--ivory);
+            position: relative;
+            overflow: hidden;
+        }
+        .hero .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+        .hero-content {
+            padding-top: 20px;
+        }
+        .hero-badge {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .hero-badge::before {
+            content: '';
+            width: 32px;
+            height: 1.5px;
+            background: var(--gold);
+            display: inline-block;
+        }
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: 4rem;
+            font-weight: 700;
+            line-height: 1.08;
+            color: var(--espresso);
+            margin-bottom: 16px;
+        }
+        .hero h1 .script {
+            font-size: 2.4rem;
+            display: block;
+            margin-top: 2px;
+        }
+        .hero p {
+            font-size: 1.05rem;
+            color: var(--text-soft);
+            max-width: 420px;
+            line-height: 1.7;
+            font-weight: 300;
+            margin-bottom: 32px;
+        }
+        .hero-ctas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-bottom: 40px;
+        }
+        .hero-tagline {
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            color: var(--text-soft);
+            font-weight: 400;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .hero-tagline span {
+            opacity: 0.4;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 520px;
+            aspect-ratio: 3/4;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background: var(--nude);
+            transition: var(--transition);
+        }
+        .hero-image-wrapper:hover {
+            box-shadow: var(--shadow-hover);
+            transform: scale(1.01);
+        }
+        .hero-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .hero-image-wrapper:hover img {
+            transform: scale(1.02);
+        }
+
+        /* Floating background shapes */
+        .bg-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: var(--gold-light);
+            opacity: 0.12;
+            pointer-events: none;
+            z-index: 0;
+            animation: pulseShape 8s ease-in-out infinite alternate;
+        }
+        .bg-shape-1 {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            right: -100px;
+        }
+        .bg-shape-2 {
+            width: 200px;
+            height: 200px;
+            bottom: -50px;
+            left: -50px;
+            animation-delay: -3s;
+        }
+
+        @keyframes pulseShape {
+            0% {
+                transform: scale(1);
+                opacity: 0.1;
+            }
+            100% {
+                transform: scale(1.2);
+                opacity: 0.2;
+            }
+        }
+
+        /* ============================================================
+                   ABOUT
+                   ============================================================ */
+        .about {
+            background: var(--white);
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .about-image {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            background: var(--nude);
+            aspect-ratio: 4/5;
+            transition: var(--transition);
+        }
+        .about-image:hover {
+            box-shadow: var(--shadow-hover);
+        }
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .about-content .section-title {
+            margin-bottom: 16px;
+        }
+        .about-content .section-title .script {
+            font-size: 1.8rem;
+        }
+        .about-text {
+            font-size: 1rem;
+            color: var(--text-soft);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        .about-signature {
+            font-family: var(--font-script);
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .about-signature i {
+            font-size: 1.2rem;
+            color: var(--gold);
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+        @keyframes heartbeat {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        /* ============================================================
+                   SERVICES (No Prices, Pure Cards)
+                   ============================================================ */
+        .services {
+            background: var(--blush-light);
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+            margin-top: 40px;
+        }
+        .service-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 36px 24px 32px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(212, 165, 116, 0.06);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--gold-light));
+            opacity: 0;
+            transition: var(--transition);
+        }
+        .service-card:hover::before {
+            opacity: 1;
+        }
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-hover);
+        }
+        .service-card .icon-wrap {
+            font-size: 2.4rem;
+            color: var(--gold);
+            margin-bottom: 16px;
+            display: inline-block;
+            transition: var(--transition);
+            animation: floatIcon 4s ease-in-out infinite;
+        }
+        .service-card:hover .icon-wrap {
+            transform: scale(1.1) rotate(3deg);
+        }
+        @keyframes floatIcon {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+        .service-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--espresso);
+        }
+        .service-card p {
+            font-size: 0.92rem;
+            color: var(--text-soft);
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* ============================================================
+                   GALLERY
+                   ============================================================ */
+        .gallery {
+            background: var(--white);
+        }
+        .gallery-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 16px;
+            justify-content: center;
+            margin: 28px 0 36px;
+        }
+        .gallery-filters button {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 6px 0;
+            color: var(--text-soft);
+            font-weight: 500;
+            border-bottom: 2px solid transparent;
+            transition: var(--transition);
+        }
+        .gallery-filters button:hover,
+        .gallery-filters button.active {
+            color: var(--espresso);
+            border-bottom-color: var(--gold);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            grid-auto-flow: dense;
+        }
+        .gallery-item {
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 2px 12px rgba(44, 24, 16, 0.04);
+            transition: var(--transition);
+            background: var(--nude);
+            aspect-ratio: 1/1;
+        }
+        .gallery-item:nth-child(5n+2) {
+            aspect-ratio: 4/5;
+        }
+        .gallery-item:nth-child(7n+3) {
+            aspect-ratio: 5/4;
+        }
+        .gallery-item:nth-child(11n+4) {
+            aspect-ratio: 3/4;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .gallery-item:hover img {
+            transform: scale(1.06);
+        }
+        .gallery-item .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(44, 24, 16, 0.25) 0%, transparent 60%);
+            opacity: 0;
+            transition: var(--transition);
+            display: flex;
+            align-items: flex-end;
+            padding: 16px;
+        }
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+        .gallery-item .overlay span {
+            color: var(--white);
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-weight: 400;
+            background: rgba(44, 24, 16, 0.4);
+            padding: 4px 14px;
+            border-radius: 50px;
+            backdrop-filter: blur(4px);
+        }
+        .gallery-item.hidden {
+            display: none;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background: rgba(20, 12, 10, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: var(--transition);
+            padding: 40px;
+        }
+        .lightbox.open {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .lightbox-content {
+            position: relative;
+            max-width: 80vw;
+            max-height: 80vh;
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+            background: var(--espresso);
+        }
+        .lightbox-content img {
+            max-width: 80vw;
+            max-height: 80vh;
+            object-fit: contain;
+            display: block;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            color: var(--white);
+            font-size: 1.6rem;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: var(--transition);
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.3);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+        .lightbox-close:hover {
+            opacity: 1;
+            transform: rotate(90deg);
+        }
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--white);
+            font-size: 1.8rem;
+            cursor: pointer;
+            opacity: 0.5;
+            transition: var(--transition);
+            background: rgba(0, 0, 0, 0.3);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+        .lightbox-nav:hover {
+            opacity: 1;
+        }
+        .lightbox-nav.prev {
+            left: 20px;
+        }
+        .lightbox-nav.next {
+            right: 20px;
+        }
+        .lightbox-counter {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.78rem;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 4px 16px;
+            border-radius: 50px;
+            backdrop-filter: blur(4px);
+        }
+
+        /* ============================================================
+                   PRICE LIST (Dedicated Section)
+                   ============================================================ */
+        .pricelist {
+            background: var(--blush-light);
+        }
+        .pricelist-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-top: 36px;
+        }
+        .pricelist-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 32px 28px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(212, 165, 116, 0.06);
+            transition: var(--transition);
+        }
+        .pricelist-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+        .pricelist-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--espresso);
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--gold-light);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .pricelist-card h3 i {
+            color: var(--gold);
+            font-size: 1.2rem;
+        }
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 7px 0;
+            font-size: 0.92rem;
+            border-bottom: 1px solid rgba(44, 24, 16, 0.04);
+        }
+        .price-row:last-child {
+            border-bottom: none;
+        }
+        .price-row .p-label {
+            color: var(--text-soft);
+        }
+        .price-row .p-price {
+            font-weight: 500;
+            color: var(--espresso);
+        }
+        .pricelist-note {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 0.82rem;
+            color: var(--text-soft);
+            font-style: italic;
+        }
+        .pricelist-cta {
+            margin-top: 32px;
+            text-align: center;
+        }
+
+        /* ============================================================
+                   FEATURES
+                   ============================================================ */
+        .features {
+            background: var(--white);
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
+            margin-top: 40px;
+        }
+        .feature-item {
+            text-align: center;
+            padding: 24px 16px;
+            border-radius: var(--radius);
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+        .feature-item:hover {
+            border-color: rgba(212, 165, 116, 0.15);
+            background: rgba(250, 246, 240, 0.4);
+            transform: translateY(-4px);
+        }
+        .feature-item .icon {
+            font-size: 2.2rem;
+            margin-bottom: 12px;
+            display: block;
+            color: var(--gold);
+            animation: floatIcon 5s ease-in-out infinite;
+        }
+        .feature-item h4 {
+            font-family: var(--font-serif);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--espresso);
+            margin-bottom: 4px;
+        }
+        .feature-item p {
+            font-size: 0.88rem;
+            color: var(--text-soft);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* ============================================================
+                   EDITORIAL GALLERY
+                   ============================================================ */
+        .editorial {
+            background: var(--ivory);
+            padding: 80px 0;
+        }
+        .editorial-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 16px;
+            margin-top: 24px;
+        }
+        .editorial-item {
+            border-radius: var(--radius-sm);
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow);
+            background: var(--nude);
+            transition: var(--transition);
+        }
+        .editorial-item:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-hover);
+        }
+        .editorial-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        .editorial-item.main {
+            grid-row: 1 / 3;
+            aspect-ratio: 3/4;
+        }
+        .editorial-item.tall {
+            grid-row: 1 / 3;
+            aspect-ratio: 3/4;
+        }
+        .editorial-item.square {
+            aspect-ratio: 1/1;
+        }
+        .editorial-item.wide {
+            aspect-ratio: 2/1;
+        }
+        .editorial-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(44, 24, 16, 0.2) 0%, transparent 50%);
+            display: flex;
+            align-items: flex-end;
+            padding: 28px;
+        }
+        .editorial-overlay p {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--white);
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+            letter-spacing: 0.01em;
+        }
+        .editorial-overlay .script {
+            font-size: 1.6rem;
+            color: var(--gold-light);
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* ============================================================
+                   BOOKING / CONTACT
+                   ============================================================ */
+        .booking {
+            background: var(--espresso);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+        .booking .section-title {
+            color: var(--white);
+        }
+        .booking .section-title .script {
+            color: var(--gold);
+        }
+        .booking p {
+            color: rgba(255, 255, 255, 0.7);
+            max-width: 480px;
+            margin: 0 auto 32px;
+            font-weight: 300;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        .booking-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+        }
+        .booking .btn-gold {
+            background: var(--gold);
+            color: var(--espresso);
+            border-color: var(--gold);
+        }
+        .booking .btn-gold:hover {
+            background: #c4956a;
+            border-color: #c4956a;
+            color: var(--white);
+        }
+        .booking .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        .booking .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--white);
+        }
+        .booking-info {
+            margin-top: 36px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 32px 48px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        .booking-info a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .booking-info a:hover {
+            color: var(--gold);
+        }
+
+        /* ============================================================
+                   SOCIAL
+                   ============================================================ */
+        .social-section {
+            background: var(--white);
+            padding: 60px 0;
+            text-align: center;
+        }
+        .social-section .section-title {
+            margin-bottom: 6px;
+        }
+        .social-section .section-subtitle {
+            margin-bottom: 24px;
+        }
+        .social-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #000;
+            color: #fff;
+            padding: 14px 36px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+        }
+        .social-btn .icon {
+            font-size: 1.2rem;
+        }
+        .social-handle {
+            display: block;
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: var(--text-soft);
+        }
+        .social-handle strong {
+            color: var(--espresso);
+            font-weight: 500;
+        }
+
+        /* ============================================================
+                   FOOTER
+                   ============================================================ */
+        .footer {
+            background: var(--ivory);
+            padding: 48px 0 32px;
+            border-top: 1px solid rgba(212, 165, 116, 0.08);
+        }
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 32px;
+        }
+        .footer-brand {
+            flex: 1 1 240px;
+        }
+        .footer-brand .name {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--espresso);
+        }
+        .footer-brand .tagline {
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            color: var(--text-soft);
+            margin-top: 4px;
+        }
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 32px 48px;
+        }
+        .footer-links .col {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .footer-links .col .label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-soft);
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+        .footer-links .col a,
+        .footer-links .col span {
+            font-size: 0.88rem;
+            color: var(--text-dark);
+            transition: var(--transition);
+        }
+        .footer-links .col a:hover {
+            color: var(--gold);
+        }
+        .footer-bottom {
+            margin-top: 32px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(44, 24, 16, 0.04);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 0.72rem;
+            color: var(--text-soft);
+        }
+
+        /* ============================================================
+                   MOBILE CTA
+                   ============================================================ */
+        .mobile-cta {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 900;
+            background: var(--espresso);
+            color: var(--white);
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            box-shadow: 0 8px 32px rgba(44, 24, 16, 0.20);
+            transition: var(--transition);
+            align-items: center;
+            gap: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .mobile-cta:hover {
+            transform: translateX(-50%) translateY(-3px);
+            box-shadow: 0 12px 40px rgba(44, 24, 16, 0.30);
+        }
+        .mobile-cta .icon {
+            font-size: 1.1rem;
+        }
+
+        /* ============================================================
+                   SCROLL REVEAL (AOS Override)
+                   ============================================================ */
+        [data-aos] {
+            pointer-events: none;
+        }
+        [data-aos].aos-animate {
+            pointer-events: auto;
+        }
+
+        /* ============================================================
+                   RESPONSIVE
+                   ============================================================ */
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .pricelist-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .editorial-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto;
+            }
+            .editorial-item.main {
+                grid-row: auto;
+                aspect-ratio: 4/3;
+            }
+            .editorial-item.tall {
+                grid-row: auto;
+                aspect-ratio: 4/3;
+            }
+        }
+
+        @media (max-width: 820px) {
+            .hero .container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+            .hero-content {
+                padding-top: 0;
+                order: 1;
+            }
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-ctas {
+                justify-content: center;
+            }
+            .hero-tagline {
+                justify-content: center;
+            }
+            .hero-image {
+                order: 0;
+            }
+            .hero-image-wrapper {
+                max-width: 400px;
+                margin: 0 auto;
+                aspect-ratio: 4/5;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .hero h1 .script {
+                font-size: 2rem;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .about-image {
+                aspect-ratio: 4/3;
+                max-width: 460px;
+                margin: 0 auto;
+            }
+            .section-title {
+                font-size: 2.2rem;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+                max-width: 440px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .pricelist-grid {
+                grid-template-columns: 1fr;
+                max-width: 420px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+            .editorial-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .editorial-item.main {
+                aspect-ratio: 4/3;
+            }
+            .editorial-item.tall {
+                aspect-ratio: 4/3;
+            }
+            .editorial-item.wide {
+                aspect-ratio: 2/1;
+            }
+            .footer-grid {
+                flex-direction: column;
+                gap: 24px;
+            }
+            .footer-links {
+                gap: 24px 32px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            :root {
+                --nav-height: 64px;
+            }
+            .section-padding {
+                padding: 56px 0;
+            }
+            .section-padding-sm {
+                padding: 40px 0;
+            }
+            .container {
+                padding: 0 18px;
+            }
+            .nav-links {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .nav-cta {
+                display: none;
+            }
+            .hero {
+                min-height: auto;
+                padding: var(--nav-height) 0 40px;
+            }
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .hero h1 .script {
+                font-size: 1.6rem;
+            }
+            .hero p {
+                font-size: 0.95rem;
+            }
+            .hero-image-wrapper {
+                max-width: 320px;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+            .section-subtitle {
+                font-size: 0.95rem;
+            }
+            .about-content .section-title .script {
+                font-size: 1.4rem;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            .gallery-item {
+                aspect-ratio: 1/1 !important;
+            }
+            .gallery-filters {
+                gap: 4px 12px;
+            }
+            .gallery-filters button {
+                font-size: 0.65rem;
+            }
+            .lightbox {
+                padding: 16px;
+            }
+            .lightbox-content {
+                max-width: 95vw;
+                max-height: 85vh;
+            }
+            .lightbox-content img {
+                max-width: 95vw;
+                max-height: 85vh;
+            }
+            .lightbox-nav {
+                width: 36px;
+                height: 36px;
+                font-size: 1.2rem;
+            }
+            .lightbox-nav.prev {
+                left: 8px;
+            }
+            .lightbox-nav.next {
+                right: 8px;
+            }
+            .lightbox-close {
+                top: 10px;
+                right: 12px;
+                width: 36px;
+                height: 36px;
+                font-size: 1.2rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+            .feature-item {
+                padding: 16px 12px;
+            }
+            .feature-item .icon {
+                font-size: 1.6rem;
+            }
+            .feature-item h4 {
+                font-size: 0.92rem;
+            }
+            .feature-item p {
+                font-size: 0.8rem;
+            }
+            .editorial-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
+            }
+            .editorial-item.main {
+                aspect-ratio: 1/1;
+            }
+            .editorial-item.tall {
+                aspect-ratio: 1/1;
+            }
+            .editorial-item.wide {
+                aspect-ratio: 2/1;
+                grid-column: 1 / 3;
+            }
+            .editorial-item.square {
+                aspect-ratio: 1/1;
+            }
+            .editorial-overlay p {
+                font-size: 1rem;
+            }
+            .editorial-overlay .script {
+                font-size: 1.2rem;
+            }
+            .booking {
+                padding: 56px 0;
+            }
+            .booking p {
+                font-size: 0.95rem;
+            }
+            .booking-info {
+                flex-direction: column;
+                gap: 12px;
+                align-items: center;
+            }
+            .mobile-cta {
+                display: flex;
+            }
+            .footer-links {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .btn {
+                padding: 12px 26px;
+                font-size: 0.82rem;
+            }
+            .services-cta .btn,
+            .pricelist-cta .btn {
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero-image-wrapper {
+                max-width: 260px;
+            }
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .features-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+            .feature-item {
+                padding: 12px 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============================================================
+    BUTTERFLIES (The "Life" Factor)
+    ============================================================ -->
+    <div class="butterfly-container" id="butterflyContainer" aria-hidden="true"></div>
+
+    <!-- ============================================================
+    NAVIGATION
+    ============================================================ -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <a href="#hero" class="nav-brand">
+                Nails by Naledi <span class="flower">🌸</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#pricelist">Prices</a></li>
+                <li><a href="#booking" class="btn btn-primary btn-sm nav-cta">Book</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+        <a href="#hero" class="mobile-nav-link">Home</a>
+        <a href="#about" class="mobile-nav-link">About</a>
+        <a href="#services" class="mobile-nav-link">Services</a>
+        <a href="#gallery" class="mobile-nav-link">Gallery</a>
+        <a href="#pricelist" class="mobile-nav-link">Prices</a>
+        <a href="#booking" class="btn btn-primary">Book Now</a>
+    </div>
+
+    <!-- ============================================================
+    HERO
+    ============================================================ -->
+    <section class="hero" id="hero">
+        <div class="bg-shape bg-shape-1"></div>
+        <div class="bg-shape bg-shape-2"></div>
+
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="800">
+                <div class="hero-badge">BEAUTY &bull; DETAIL &bull; CONFIDENCE</div>
+                <h1>
+                    Beautiful Nails.<br />
+                    <span class="script">Made Just For You.</span>
+                </h1>
+                <p>Luxury nail care, beautiful details and personalised nail art by Nails by Naledi.</p>
+                <div class="hero-ctas">
+                    <a href="#booking" class="btn btn-primary">
+                        <i class="fas fa-calendar-check"></i> Book Your Appointment
+                    </a>
+                    <a href="#gallery" class="btn btn-secondary">
+                        <i class="fas fa-arrow-right"></i> View My Work
+                    </a>
+                </div>
+                <div class="hero-tagline">
+                    <span>✦</span> Premium nail artistry <span>✦</span> South Africa
+                </div>
+            </div>
+
+            <div class="hero-image" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
+                <div class="hero-image-wrapper">
+                    <!-- ✅ NAIL IMAGE - Replace with Naledi's own hero photo -->
+                    <img
+                    src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&h=1060&fit=crop&crop=center&auto=format"
+                    alt="Beautiful manicured nails by Nails by Naledi"
+                    loading="eager"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    ABOUT
+    ============================================================ -->
+    <section class="about section-padding" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image" data-aos="fade-right" data-aos-duration="800">
+                    <!-- ✅ PORTRAIT - Replace with Naledi's photo -->
+                    <img
+                    src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=600&h=750&fit=crop&crop=center&auto=format"
+                    alt="Naledi — nail artist and founder of Nails by Naledi"
+                    loading="lazy"
+                    />
+                </div>
+                <div class="about-content" data-aos="fade-left" data-aos-duration="800">
+                    <span class="section-label">About</span>
+                    <h2 class="section-title">
+                        Meet Naledi <span class="script">🌸</span>
+                    </h2>
+                    <p class="about-text">
+                        Welcome to Nails by Naledi — where beautiful nails meet creativity, confidence and
+                        attention to detail. Every set is created with care, from timeless everyday manicures
+                        to detailed nail art designed to make you feel your absolute best.
+                    </p>
+                    <p class="about-text">
+                        Based in South Africa, Naledi brings a warm, personal touch to every appointment,
+                        ensuring each client leaves feeling polished, confident and completely in love with
+                        their nails.
+                    </p>
+                    <div class="about-signature">
+                        Made with care <i class="fas fa-heart"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SERVICES (No Prices, Pure Cards)
+    ============================================================ -->
+    <section class="services section-padding" id="services">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up" data-aos-duration="600">
+                <span class="section-label">What I Offer</span>
+                <h2 class="section-title">Signature Services <span class="script">✦</span></h2>
+                <p class="section-subtitle centered">Crafted with precision, delivered with warmth — your nails deserve the best.</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="100">
+                    <div class="icon-wrap"><i class="fas fa-hand-sparkles"></i></div>
+                    <h3>Luxury Manicure</h3>
+                    <p>Expert shaping, gentle cuticle care, and a flawless polish finish that lasts. Pure elegance for your fingertips.</p>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="200">
+                    <div class="icon-wrap"><i class="fas fa-paint-brush"></i></div>
+                    <h3>Bespoke Nail Art</h3>
+                    <p>From minimalist French tips to intricate 3D designs. Your nails become a canvas for artistic expression.</p>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="300">
+                    <div class="icon-wrap"><i class="fas fa-spa"></i></div>
+                    <h3>The Pedicure Ritual</h3>
+                    <p>Indulge in complete foot rejuvenation — soak, buff, and shine for beautifully groomed, soft feet.</p>
+                </div>
+                <div class="service-card" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="400">
+                    <div class="icon-wrap"><i class="fas fa-arrows-spin"></i></div>
+                    <h3>Full Set Mastery</h3>
+                    <p>Perfectly applied extensions for any length or shape. Strong, durable, and undeniably elegant.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    GALLERY
+    ============================================================ -->
+    <section class="gallery section-padding" id="gallery">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <span class="section-label">Portfolio</span>
+                <h2 class="section-title">The Nail Edit <span class="script">✦</span></h2>
+                <p class="section-subtitle centered">A little look at some of my favourite sets.</p>
+            </div>
+
+            <div class="gallery-filters" id="galleryFilters" data-aos="fade-up" data-aos-delay="100">
+                <button class="active" data-filter="all">All</button>
+                <button data-filter="french">French</button>
+                <button data-filter="nude">Nude</button>
+                <button data-filter="pink">Pink</button>
+                <button data-filter="nailart">Nail Art</button>
+                <button data-filter="long">Long Sets</button>
+                <button data-filter="3d">3D Designs</button>
+            </div>
+
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Injected by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    PRICE LIST
+    ============================================================ -->
+    <section class="pricelist section-padding" id="pricelist">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <span class="section-label">Investment</span>
+                <h2 class="section-title">Price List <span class="script">✦</span></h2>
+                <p class="section-subtitle centered">Transparent, elegant pricing for every look.</p>
+            </div>
+
+            <div class="pricelist-grid">
+                <div class="pricelist-card" data-aos="flip-up" data-aos-duration="600">
+                    <h3><i class="fas fa-hand-sparkles"></i> Manicure</h3>
+                    <div class="price-row"><span class="p-label">Short Nails</span><span class="p-price">R100</span></div>
+                    <div class="price-row"><span class="p-label">Medium Nails</span><span class="p-price">R130</span></div>
+                    <div class="price-row"><span class="p-label">Long Nails</span><span class="p-price">R150</span></div>
+                    <div class="price-row"><span class="p-label">Stiletto / Almond</span><span class="p-price">+R20</span></div>
+                </div>
+
+                <div class="pricelist-card" data-aos="flip-up" data-aos-duration="600" data-aos-delay="150">
+                    <h3><i class="fas fa-paint-brush"></i> Nail Art</h3>
+                    <div class="price-row"><span class="p-label">French</span><span class="p-price">R5 / nail</span></div>
+                    <div class="price-row"><span class="p-label">3D Flower Design</span><span class="p-price">R15 / nail</span></div>
+                    <div class="price-row"><span class="p-label">Other Designs</span><span class="p-price">R5–R20</span></div>
+                </div>
+
+                <div class="pricelist-card" data-aos="flip-up" data-aos-duration="600" data-aos-delay="300">
+                    <h3><i class="fas fa-spa"></i> Other</h3>
+                    <div class="price-row"><span class="p-label">Pedicure</span><span class="p-price">R80</span></div>
+                    <div class="price-row"><span class="p-label">Soak Off</span><span class="p-price">R60</span></div>
+                    <div class="price-row"><span class="p-label">Foreign Soak Off</span><span class="p-price">R70</span></div>
+                    <div class="price-row"><span class="p-label">Buff &amp; Shine</span><span class="p-price">R70</span></div>
+                </div>
+            </div>
+
+            <div class="pricelist-note" data-aos="fade-up">
+                Prices may vary depending on design complexity and requested length.
+            </div>
+
+            <div class="pricelist-cta" data-aos="fade-up">
+                <a href="#booking" class="btn btn-primary">Book Your Set <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    WHY NALEDI (Features)
+    ============================================================ -->
+    <section class="features section-padding-sm" id="features">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <span class="section-label">Why Naledi</span>
+                <h2 class="section-title">Made With Care <span class="script">✦</span></h2>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="100">
+                    <span class="icon"><i class="fas fa-circle-check"></i></span>
+                    <h4>Attention to Detail</h4>
+                    <p>Every set is finished with care, from the first file to the final top coat.</p>
+                </div>
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="200">
+                    <span class="icon"><i class="fas fa-palette"></i></span>
+                    <h4>Your Style, Your Set</h4>
+                    <p>Choose colours, shapes and designs that feel like you — because your nails should be personal.</p>
+                </div>
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="300">
+                    <span class="icon"><i class="fas fa-wand-magic-sparkles"></i></span>
+                    <h4>Creative Nail Art</h4>
+                    <p>From clean French tips to detailed statement designs, every set is a fresh canvas.</p>
+                </div>
+                <div class="feature-item" data-aos="fade-up" data-aos-delay="400">
+                    <span class="icon"><i class="fas fa-heart"></i></span>
+                    <h4>Personal Experience</h4>
+                    <p>A more personal, relaxed nail experience — because you deserve to feel at ease.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    EDITORIAL GALLERY
+    ============================================================ -->
+    <section class="editorial" id="editorial">
+        <div class="container">
+            <div class="text-center" data-aos="fade-up">
+                <span class="section-label">Gallery Feature</span>
+                <h2 class="section-title">Your Nails Deserve Their Moment <span class="script">✦</span></h2>
+            </div>
+
+            <div class="editorial-grid">
+                <div class="editorial-item main" data-aos="fade-right" data-aos-duration="800">
+                    <img
+                    src="https://images.unsplash.com/photo-1596560541948-c8fa2aacb17f?w=800&h=1060&fit=crop&crop=center&auto=format"
+                    alt="Nails by Naledi featured nail art set"
+                    loading="lazy"
+                    />
+                    <div class="editorial-overlay">
+                        <p>Luxury <span class="script">in every detail</span></p>
+                    </div>
+                </div>
+
+                <div class="editorial-item tall" data-aos="fade-down" data-aos-duration="800" data-aos-delay="100">
+                    <img
+                    src="https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=600&h=800&fit=crop&crop=center&auto=format"
+                    alt="Elegant pink manicure by Nails by Naledi"
+                    loading="lazy"
+                    />
+                </div>
+
+                <div class="editorial-item square" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <img
+                    src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=600&h=600&fit=crop&crop=center&auto=format"
+                    alt="Nail art detail by Nails by Naledi"
+                    loading="lazy"
+                    />
+                </div>
+
+                <div class="editorial-item wide" data-aos="fade-left" data-aos-duration="800" data-aos-delay="300">
+                    <img
+                    src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800&h=400&fit=crop&crop=center&auto=format"
+                    alt="Nails by Naledi manicure collection"
+                    loading="lazy"
+                    />
+                    <div class="editorial-overlay">
+                        <p><span class="script">Beautiful</span> nails, made for you</p>
+                    </div>
+                </div>
+
+                <div class="editorial-item square" data-aos="zoom-in" data-aos-duration="800" data-aos-delay="400">
+                    <img
+                    src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&h=600&fit=crop&crop=center&auto=format"
+                    alt="Close-up nail art by Nails by Naledi"
+                    loading="lazy"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+    SOCIAL / TIKTOK
+    ============================================================ -->
+    <section class="social-section" id="social">
+        <div class="container">
+            <div data-aos="fade-up">
+                <span class="section-label">Follow Along</span>
+                <h2 class="section-title">Follow The Journey <span class="script">🌸</span></h2>
+                <p class="section-subtitle centered">See new sets, nail inspo and behind-the-scenes moments on TikTok.</p>
+            </div>
+
+            <div data-aos="fade-up" data-aos-delay="100" style="margin-top: 20px;">
+                <a
+                href="https://www.tiktok.com/@naledi_mtambo?_r=1&_t=ZS-99BBouf1siD"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="social-btn"
+                >
+                <span class="icon"><i class="fab fa-tiktok"></i></span> Follow on TikTok
+            </a>
+            <span class="social-handle"><strong>@naledi_mtambo</strong> &bull; Nails_by_Naledi 🌸</span>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================
+BOOKING / CONTACT
+============================================================ -->
+<section class="booking" id="booking">
+    <div class="container">
+        <div data-aos="fade-up">
+            <span class="section-label" style="color: rgba(255,255,255,0.4);">Book</span>
+            <h2 class="section-title">
+                Ready For Your Next Set? <span class="script">✦</span>
+            </h2>
+            <p>Choose your style, book your appointment and let's create something beautiful.</p>
+        </div>
+
+        <div class="booking-buttons" data-aos="fade-up" data-aos-delay="100">
+            <a
+            href="https://wa.me/27671644365?text=Hi%20Naledi%20%F0%9F%8C%B8%20I'd%20like%20to%20book%20a%20nail%20appointment.%20Please%20let%20me%20know%20your%20available%20dates%20and%20times."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-gold"
+            >
+            <i class="fab fa-whatsapp"></i> Book on WhatsApp
+        </a>
+        <a href="tel:+27671644365" class="btn btn-outline">
+            <i class="fas fa-phone"></i> 067 164 4365
+        </a>
+    </div>
+
+    <div class="booking-info" data-aos="fade-up" data-aos-delay="200">
+        <span><i class="fas fa-location-dot"></i> Phokeng 1, 17 Evadne Laan, Bedworth Park</span>
+        <span>|</span>
+        <a href="https://wa.me/27671644365" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+        <span>|</span>
+        <a href="tel:+27671644365"><i class="fas fa-phone"></i> Call</a>
+        <span>|</span>
+        <a href="https://www.tiktok.com/@naledi_mtambo" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i> TikTok</a>
+    </div>
+</div>
+</section>
+
+<!-- ============================================================
+FOOTER
+============================================================ -->
+<footer class="footer" id="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="name">Nails by Naledi <span class="flower">🌸</span></div>
+                <div class="tagline">Beauty &bull; Detail &bull; Confidence</div>
+            </div>
+
+            <div class="footer-links">
+                <div class="col">
+                    <span class="label">Connect</span>
+                    <a href="https://www.tiktok.com/@naledi_mtambo" target="_blank" rel="noopener noreferrer"><i class="fab fa-tiktok"></i> @naledi_mtambo</a>
+                    <a href="https://wa.me/27671644365" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> 067 164 4365</a>
+                    <a href="tel:+27671644365"><i class="fas fa-phone"></i> 067 164 4365</a>
+                </div>
+                <div class="col">
+                    <span class="label">Location</span>
+                    <span><i class="fas fa-location-dot"></i> Phokeng 1, 17 Evadne Laan</span>
+                    <span>Bedworth Park</span>
+                </div>
+                <div class="col">
+                    <span class="label">Navigate</span>
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#booking">Book</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>&copy; 2026 Nails by Naledi. All rights reserved.</span>
+            <span>Made with care <i class="fas fa-heart" style="color: var(--gold);"></i> in South Africa</span>
+        </div>
+    </div>
+</footer>
+
+<!-- ============================================================
+FIXED MOBILE CTA
+============================================================ -->
+<a
+href="https://wa.me/27671644365?text=Hi%20Naledi%20%F0%9F%8C%B8%20I'd%20like%20to%20book%20a%20nail%20appointment.%20Please%20let%20me%20know%20your%20available%20dates%20and%20times."
+target="_blank"
+rel="noopener noreferrer"
+class="mobile-cta"
+id="mobileCta"
+aria-label="Book on WhatsApp"
+>
+<i class="fab fa-whatsapp"></i> Book on WhatsApp
+</a>
+
+<!-- ============================================================
+LIGHTBOX
+============================================================ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image gallery lightbox">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close lightbox"><i class="fas fa-times"></i></button>
+    <button class="lightbox-nav prev" id="lightboxPrev" aria-label="Previous image"><i class="fas fa-chevron-left"></i></button>
+    <button class="lightbox-nav next" id="lightboxNext" aria-label="Next image"><i class="fas fa-chevron-right"></i></button>
+    <div class="lightbox-content">
+        <img id="lightboxImg" src="" alt="" />
+    </div>
+    <span class="lightbox-counter" id="lightboxCounter">1 / 1</span>
+</div>
+
+<!-- ============================================================
+SCRIPTS
+============================================================ -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js">
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        'use strict';
+
+        // ============================================================
+        // AOS (Animate on Scroll)
+        // ============================================================
+        AOS.init({
+            once: true,
+            offset: 40,
+            duration: 700,
+            easing: 'ease-out-cubic'
+        });
+
+        // ============================================================
+        // BUTTERFLIES (The "Life" Factor)
+        // ============================================================
+        const butterflyContainer = document.getElementById('butterflyContainer');
+        const butterflyEmojis = ['🦋', '🦋', '🦋'];
+        const colors = ['#d4a574', '#e8d5c0', '#f0e4dc', '#c4956a'];
+
+        function createButterfly() {
+            const el = document.createElement('div');
+            el.className = 'butterfly';
+            el.textContent = butterflyEmojis[Math.floor(Math.random() * butterflyEmojis.length)];
+            el.style.color = colors[Math.floor(Math.random() * colors.length)];
+            el.style.fontSize = (1.2 + Math.random() * 1.2) + 'rem';
+            el.style.left = Math.random() * 100 + '%';
+            el.style.top = Math.random() * 100 + '%';
+            el.style.opacity = 0.2 + Math.random() * 0.2;
+            const duration = 25 + Math.random() * 35;
+            const xDistance = 100 + Math.random() * 200;
+            const yDistance = 50 + Math.random() * 150;
+            el.style.animation = `floatButterfly ${duration}s linear infinite`;
+            el.style.setProperty('--x', xDistance + 'px');
+            el.style.setProperty('--y', yDistance + 'px');
+            el.style.animationDelay = (Math.random() * 15) + 's';
+            butterflyContainer.appendChild(el);
+        }
+
+        // Create 6 butterflies
+        for (let i = 0; i < 6; i++) {
+            createButterfly();
+        }
+
+        // ============================================================
+        // NAVIGATION
+        // ============================================================
+        const navbar = document.getElementById('navbar');
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+        window.addEventListener('scroll', function() {
+            const scrollY = window.scrollY;
+            if (scrollY > 60) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        hamburger.addEventListener('click', function() {
+            this.classList.toggle('active');
+            mobileNav.classList.toggle('open');
+            document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+            this.setAttribute('aria-expanded', mobileNav.classList.contains('open'));
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                mobileNav.classList.remove('open');
+                document.body.style.overflow = '';
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // ============================================================
+        // SMOOTH SCROLL
+        // ============================================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const target = document.querySelector(targetId);
+                if (target) {
+                    e.preventDefault();
+                    const offset = parseInt(getComputedStyle(document.documentElement).getPropertyValue(
+                    '--nav-height')) || 72;
+                    const top = target.getBoundingClientRect().top + window.scrollY - offset - 12;
+                    window.scrollTo({ top, behavior: 'smooth' });
+                }
+            });
+        });
+
+        // ============================================================
+        // GALLERY DATA (ALL NAIL IMAGES)
+        // ============================================================
+        const galleryImages = [{
+            src: 'https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&h=600&fit=crop&crop=center&auto=format',
+            alt: 'Nails by Naledi pink almond nail set',
+            category: 'pink'
+        }, {
+            src: 'https://images.unsplash.com/photo-1582878826629-29b7ad1cdc43?w=600&h=750&fit=crop&crop=center&auto=format',
+            alt: 'French tip manicure by Nails by Naledi',
+            category: 'french'
+        }, {
+            src: 'https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=600&h=600&fit=crop&crop=center&auto=format',
+            alt: 'Nude nail art by Nails by Naledi',
+            category: 'nude'
+        }, {
+            src: 'https://images.unsplash.com/photo-1596560541948-c8fa2aacb17f?w=600&h=800&fit=crop&crop=center&auto=format',
+            alt: '3D flower nail art by Nails by Naledi',
+            category: '3d'
+        }, {
+            src: 'https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=600&h=600&fit=crop&crop=center&auto=format',
+            alt: 'Long stiletto nail set by Nails by Naledi',
+            category: 'long'
+        }, {
+            src: 'https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=600&h=750&fit=crop&crop=center&auto=format',
+            alt: 'Pink and gold nail art by Nails by Naledi',
+            category: 'nailart'
+        }, {
+            src: 'https://images.unsplash.com/photo-1571079559641-9a8f0caf1f33?w=600&h=600&fit=crop&crop=center&auto=format',
+            alt: 'Elegant French manicure by Nails by Naledi',
+            category: 'french'
+        }, {
+            src: 'https://images.unsplash.com/photo-1581256756205-5b93aa2054c7?w=600&h=800&fit=crop&crop=center&auto=format',
+            alt: 'Nails by Naledi nail art design',
+            category: 'nailart'
+        }, {
+            src: 'https://images.unsplash.com/photo-1598439210625-5067c578f3f6?w=600&h=600&fit=crop&crop=center&auto=format',
+            alt: 'Nude almond nails by Nails by Naledi',
+            category: 'nude'
+        }, {
+            src: 'https://images.unsplash.com/photo-1607779095840-9b14f1a1d9a7?w=600&h=750&fit=crop&crop=center&auto=format',
+            alt: 'Pink nail set with detail by Nails by Naledi',
+            category: 'pink'
+        }, {
+            src: 'https://images.unsplash.com/photo-1572719765768-0766b4c616fa?w=600&h=600&fit=crop&crop=center&auto=format',
+            alt: '3D nail art design by Nails by Naledi',
+            category: '3d'
+        }, {
+            src: 'https://images.unsplash.com/photo-1581299894007-aaa50297cf16?w=600&h=800&fit=crop&crop=center&auto=format',
+            alt: 'Long French nail set by Nails by Naledi',
+            category: 'long'
+        }, {
+            src: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=600&h=600&fit=crop&crop=center&auto=format',
+            alt: 'Nails by Naledi creative nail art',
+            category: 'nailart'
+        }, {
+            src: 'https://images.unsplash.com/photo-1607779095840-9b14f1a1d9a7?w=600&h=750&fit=crop&crop=center&auto=format',
+            alt: 'Pink stiletto nails by Nails by Naledi',
+            category: 'pink'
+        }, {
+            src: 'https://images.unsplash.com/photo-1581256756205-5b93aa2054c7?w=600&h=600&fit=crop&crop=center&auto=format',
+            alt: 'Nude and gold nail art by Nails by Naledi',
+            category: 'nude'
+        }, {
+            src: 'https://images.unsplash.com/photo-1572719765768-0766b4c616fa?w=600&h=750&fit=crop&crop=center&auto=format',
+            alt: '3D flower nail art detail by Nails by Naledi',
+            category: '3d'
+        }, {
+            src: 'https://images.unsplash.com/photo-1598439210625-5067c578f3f6?w=600&h=600&fit=crop&crop=center&auto=format',
+            alt: 'French tip nail set by Nails by Naledi',
+            category: 'french'
+        }, {
+            src: 'https://images.unsplash.com/photo-1607779095840-9b14f1a1d9a7?w=600&h=800&fit=crop&crop=center&auto=format',
+            alt: 'Nails by Naledi long nail set',
+            category: 'long'
+        }];
+
+        // ============================================================
+        // RENDER GALLERY
+        // ============================================================
+        const grid = document.getElementById('galleryGrid');
+        const filterButtons = document.querySelectorAll('#galleryFilters button');
+        let currentFilter = 'all';
+        let lightboxImages = [];
+        let currentLightboxIndex = 0;
+
+        function renderGallery(filter) {
+            const filtered = filter === 'all' ?
+                galleryImages :
+                galleryImages.filter(img => img.category === filter);
+
+            grid.innerHTML = '';
+            filtered.forEach((img, index) => {
+                const div = document.createElement('div');
+                div.className = 'gallery-item';
+                div.dataset.index = index;
+                div.innerHTML = `
+                        <img src="${img.src}" alt="${img.alt}" loading="lazy" />
+                        <div class="overlay"><span>${img.category}</span></div>
+                    `;
+                div.addEventListener('click', () => openLightbox(filtered, index));
+                grid.appendChild(div);
+            });
+            lightboxImages = filtered;
+        }
+
+        // ============================================================
+        // FILTERS
+        // ============================================================
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentFilter = this.dataset.filter;
+                renderGallery(currentFilter);
+            });
+        });
+
+        // ============================================================
+        // LIGHTBOX
+        // ============================================================
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const lightboxCounter = document.getElementById('lightboxCounter');
+        const closeBtn = document.getElementById('lightboxClose');
+        const prevBtn = document.getElementById('lightboxPrev');
+        const nextBtn = document.getElementById('lightboxNext');
+
+        function openLightbox(images, index) {
+            lightboxImages = images;
+            currentLightboxIndex = index;
+            updateLightbox();
+            lightbox.classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        function updateLightbox() {
+            const img = lightboxImages[currentLightboxIndex];
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightboxCounter.textContent = `${currentLightboxIndex + 1} / ${lightboxImages.length}`;
+        }
+
+        function prevImage() {
+            if (lightboxImages.length === 0) return;
+            currentLightboxIndex = (currentLightboxIndex - 1 + lightboxImages.length) % lightboxImages.length;
+            updateLightbox();
+        }
+
+        function nextImage() {
+            if (lightboxImages.length === 0) return;
+            currentLightboxIndex = (currentLightboxIndex + 1) % lightboxImages.length;
+            updateLightbox();
+        }
+
+        closeBtn.addEventListener('click', closeLightbox);
+        prevBtn.addEventListener('click', prevImage);
+        nextBtn.addEventListener('click', nextImage);
+
+        document.addEventListener('keydown', function(e) {
+            if (!lightbox.classList.contains('open')) return;
+            if (e.key === 'Escape') closeLightbox();
+            if (e.key === 'ArrowLeft') prevImage();
+            if (e.key === 'ArrowRight') nextImage();
+        });
+
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) closeLightbox();
+        });
+
+        // ============================================================
+        // INIT
+        // ============================================================
+        renderGallery('all');
+
+        console.log('🌸 Nails by Naledi — Premium Interactive Portfolio loaded.');
+    });
+</script>
+</body>
+</html>
